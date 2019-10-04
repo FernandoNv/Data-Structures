@@ -10,6 +10,11 @@ typedef struct ab{
     struct ab *esq, *dir;
 }TAB;
 
+typedef struct abb{
+    int info;
+    struct ab *esq, *dir;
+}TABB;
+
 TAB* cria_ab(int x, TAB* e, TAB* d);
 void imprime_ab(TAB *t);
 void libera_ab(TAB* t);

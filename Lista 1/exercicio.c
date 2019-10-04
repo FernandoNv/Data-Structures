@@ -84,3 +84,42 @@ int ni(TAB *a){
         return cont;
     }
 }
+
+TABB* maior(TAB *a){
+    if(!a) return a;
+    if(a->dir) return maior(a->dir);
+    return a;
+}
+
+TAB* retira_impares(TAB *a){
+    if(!a) return a;
+    a->esq = retira_impares(a->esq);
+    a->dir = retira_impares(a->dir);
+    if(a->info % 2){
+        return retira_abb(a->info, a);
+    }
+    return a;
+}
+
+int* mn(TAB *a, int n){
+    if(!a) return NULL;
+    int tamanho_vetor = ni(a) + 1;
+    int *v, i = 0;
+    v = (int *) malloc(tamanho_vetor * sizeof(int));
+    for(int j = 0; j<tamanho_vetor; j++){
+        v[j] = NULL;
+    }
+    mnaux(a,n,v,i);
+    return v;
+}
+
+mnaux(TAB *a,int n,int *v,int i){
+    if(!a) return i;
+    i = mnaux(a->esq, n , v, i);
+    if(a->info < n){
+        v[i] = a->info;
+        i++;
+    }
+    i = mnaux(a->dir, n , v, i);
+    return i;
+}

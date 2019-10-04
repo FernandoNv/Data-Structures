@@ -113,7 +113,7 @@ int* mn(TAB *a, int n){
     return v;
 }
 
-mnaux(TAB *a,int n,int *v,int i){
+int mnaux(TAB *a,int n,int *v,int i){
     if(!a) return i;
     i = mnaux(a->esq, n , v, i);
     if(a->info < n){

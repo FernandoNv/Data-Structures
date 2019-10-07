@@ -12,4 +12,5 @@ int ni(TAB *a);
 TABB* maior(TAB *a);
 TAB* retira_impares(TAB *a);
 int* mn(TAB *a, int n);
+int altura(TAB *a);
 #endif // EXERCICIOS_H_INCLUDED

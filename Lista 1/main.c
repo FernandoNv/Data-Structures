@@ -2,34 +2,41 @@
 #include <stdlib.h>
 #include "TAB_TABB.h"
 #include "exercicios.h"
-
+#include "TAAVL.h"
 int main(){
     TAB *a = cria_ab(8, NULL, NULL);
-    TAB *b = insere_abb(3, a);
-    TAB *c = insere_abb(10, b);
-    TAB *d = insere_abb(1, c);
-    TAB *e = insere_abb(6, d);
-    TAB *f = insere_abb(14, e);
-    TAB *g = insere_abb(4, f);
-    TAB *h = insere_abb(7, g);
-    TAB *i = insere_abb(13, h);
-    imprime_ab(g);
-    //TAB* g_sem_impares = retira_impares(g);
+    a = insere_abb(3, a);
+    a = insere_abb(10, a);
+    a = insere_abb(1, a);
+    a = insere_abb(6, a);
+    a = insere_abb(14, a);
+    a = insere_abb(4, a);
+    a = insere_abb(7, a);
+    a = insere_abb(13, a);
+    imprime_ab(a);
 
     printf("\n");
     printf("\n");
+    TAB *c = cria_ab(7, NULL, NULL);
+    int altura_a = altura(a);
+    printf("Altura da arvore: %d", altura_a);
+    /*
     printf("\n");
-    printf("\n");
-    printf("\n");
-    //imprime_ab(g_sem_impares);
-
     int *v, j;
     j = 0;
-    v = mn(i, 20);
+    v = mn(a, 7);
     while(v[j]){
         printf("[%i] = %i\n", j, v[j]);
         j++;
     }
     free(v);
+    printf("\n");
+    printf("\n");
+
+    TAB* b = retira_impares(a);
+    imprime_ab(b);
+    int altura_b = altura(b);
+    printf("Altura da arvore: %d", altura_b);
+    */
     return 0;
 }

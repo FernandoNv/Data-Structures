@@ -123,3 +123,22 @@ int mnaux(TAB *a,int n,int *v,int i){
     i = mnaux(a->dir, n , v, i);
     return i;
 }
+
+int altura(TAB *a){
+    if(!a) return -1;
+    return altura_max(altura(a->esq), altura(a->dir)) + 1;
+}
+
+int altura_max(int a, int b){
+    if((a<0) || (b<0)){
+        if((a<0) && (b<0)){
+            return 0;
+        }
+        if(a < 0) return b;
+        return a;
+    }
+    if(a > b){
+        return a;
+    }
+    return b;
+}

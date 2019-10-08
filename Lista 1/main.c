@@ -18,8 +18,8 @@ int main(){
     printf("\n");
     printf("\n");
     TAB *c = cria_ab(7, NULL, NULL);
-    int altura_a = altura(a);
-    printf("Altura da arvore: %d", altura_a);
+    int nointerno = ni(a);
+    printf("Nos internos: %d", nointerno);
     /*
     printf("\n");
     int *v, j;

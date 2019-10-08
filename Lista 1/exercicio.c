@@ -77,12 +77,14 @@ void coloreFilho(TAB *arv, int cor){
 int ni(TAB *a){
     if(!a){
         return 0;
-    }else{
-        int cont = 1;
-        cont = cont + ni(a->esq);
-        cont = cont + ni(a->dir);
-        return cont;
     }
+    int resp = 0;
+    if((a->esq) || (a->dir)){
+        int resp1 = ni(a->esq);
+        int resp2 = ni(a->dir);
+        resp = resp1 + resp2 + 1;
+    }
+    return resp;
 }
 
 TABB* maior(TAB *a){

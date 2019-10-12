@@ -61,14 +61,18 @@ Queue* qRemove(Queue *q, Type info){
     return NULL;
 }
 Queue* qPop(Queue *q){
-    return qRemove(q, q->info);
+    if(!q) return q;
+    Queue *aux = q;
+    aux = aux->next;
+    free(q);
+    return aux;
 }
 Type qPeek(Queue *q){
     return q->info;
 }
 Queue* qDestroy(Queue *q){
     if(!q) return q;
-    q = qRemove(q, q->info);
+    q = qPop(q);
     return qDestroy(q);
 }
 void qPrint(Queue *q){

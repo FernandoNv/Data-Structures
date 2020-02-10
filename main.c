@@ -40,8 +40,23 @@ int main() {
 
 
 	ListaDupla* lista = criaListaDupla();
-	printf("Tamanho: %i\n", tamanhoListaDupla(lista));
-	printf("Vazio: %i\n", vazioListaDupla(lista));
-	printf("Cheio: %i\n", cheioListaDupla(lista));
+	lista = insereOrdenadoListaDupla(lista, alu5);
+	lista = insereOrdenadoListaDupla(lista, alu3);
+	lista = insereOrdenadoListaDupla(lista, alu2);
+	lista = insereOrdenadoListaDupla(lista, alu);
+	lista = insereOrdenadoListaDupla(lista, alu4);
+
+	// printf("Tamanho: %i\n", tamanhoListaDupla(lista));
+	// imprimeListaDupla(lista);
+
+	// lista = removeFimListaDupla(lista);
+	Aluno* alu10 = buscaPosicaoListaDupla(lista, 1);
+	imprimeAluno(alu10);
+	// printf("Tamanho: %i\n", tamanhoListaDupla(lista));
+	// printf("Vazio: %i\n", vazioListaDupla(lista));
+	// printf("Cheio: %i\n", cheioListaDupla(lista));
+	// imprimeListaDupla(lista);
+
+	liberaListaDupla(lista);
 	return 0;
 }

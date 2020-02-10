@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista-dinamica-encadeada.h"
+#include "lista-dinamica-encadeada-dupla.h"
 
 int main() {
 	Aluno* alu = malloc(sizeof(Aluno));
@@ -38,18 +38,10 @@ int main() {
 	alu5->notas[1] = 5.00;
 	alu5->notas[2] = 7.00;
 
-	ListaDinamicaEncadeada* lista = criaListaDinamicaEncadeada();
-	lista = insereOrdenadoListaDinamicaEncadeada(lista, alu);
-	lista = insereOrdenadoListaDinamicaEncadeada(lista, alu2);
-	lista = insereOrdenadoListaDinamicaEncadeada(lista, alu3);
-	lista = insereOrdenadoListaDinamicaEncadeada(lista, alu4);
-	lista = insereOrdenadoListaDinamicaEncadeada(lista, alu5);
-	Aluno* fernando = buscaPosicaoListaDinamicaEncadeada(lista, 6);
-	imprimeAluno(fernando);
 
-	printListaDinamicaEncadeada(lista);
-	printf("Tamanho: %i\n", tamanhoListaDinamicaEncadeada(lista));
-
-	liberaListaDinamicaEncadeada(lista);
+	ListaDupla* lista = criaListaDupla();
+	printf("Tamanho: %i\n", tamanhoListaDupla(lista));
+	printf("Vazio: %i\n", vazioListaDupla(lista));
+	printf("Cheio: %i\n", cheioListaDupla(lista));
 	return 0;
 }

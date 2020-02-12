@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista-dinamica-encadeada-dupla.h"
+#include "lista-circular.h"
 
 int main() {
 	Aluno* alu = malloc(sizeof(Aluno));
@@ -38,25 +38,18 @@ int main() {
 	alu5->notas[1] = 5.00;
 	alu5->notas[2] = 7.00;
 
+	ListaCircular* lista = criaListaCircular();
+	lista = insereOrdenadoListaCircular(lista, alu2);
+	lista = insereOrdenadoListaCircular(lista, alu);
+	lista = insereOrdenadoListaCircular(lista, alu3);
+	lista = insereOrdenadoListaCircular(lista, alu4);
 
-	ListaDupla* lista = criaListaDupla();
-	lista = insereOrdenadoListaDupla(lista, alu5);
-	lista = insereOrdenadoListaDupla(lista, alu3);
-	lista = insereOrdenadoListaDupla(lista, alu2);
-	lista = insereOrdenadoListaDupla(lista, alu);
-	lista = insereOrdenadoListaDupla(lista, alu4);
+	printf("Tamanho %i\n", tamanhoListaCircular(lista));
+	imprimeListaDupla(lista);
 
-	// printf("Tamanho: %i\n", tamanhoListaDupla(lista));
-	// imprimeListaDupla(lista);
+	Aluno* alu6 = buscaPosicaoListaCircular(lista, 1);
+	imprimeAluno(alu6);
 
-	// lista = removeFimListaDupla(lista);
-	Aluno* alu10 = buscaPosicaoListaDupla(lista, 1);
-	imprimeAluno(alu10);
-	// printf("Tamanho: %i\n", tamanhoListaDupla(lista));
-	// printf("Vazio: %i\n", vazioListaDupla(lista));
-	// printf("Cheio: %i\n", cheioListaDupla(lista));
-	// imprimeListaDupla(lista);
-
-	liberaListaDupla(lista);
+	liberaListaCircular(lista);
 	return 0;
 }

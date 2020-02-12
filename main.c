@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista-circular.h"
+#include "lista-descritiva.h"
 
 int main() {
 	Aluno* alu = malloc(sizeof(Aluno));
@@ -38,18 +38,22 @@ int main() {
 	alu5->notas[1] = 5.00;
 	alu5->notas[2] = 7.00;
 
-	ListaCircular* lista = criaListaCircular();
-	lista = insereOrdenadoListaCircular(lista, alu2);
-	lista = insereOrdenadoListaCircular(lista, alu);
-	lista = insereOrdenadoListaCircular(lista, alu3);
-	lista = insereOrdenadoListaCircular(lista, alu4);
+	ListaDescritiva* lista = criaListaDescritiva();
+	lista = insereFimListaDescritiva(lista, alu2);
+	lista = insereFimListaDescritiva(lista, alu);
+	lista = insereFimListaDescritiva(lista, alu3);
+	lista = insereFimListaDescritiva(lista, alu4);
 
-	printf("Tamanho %i\n", tamanhoListaCircular(lista));
-	imprimeListaDupla(lista);
+	printf("Tamanho %i\n", tamanhoListaDescritiva(lista));
+	imprimeListaDescritiva(lista);
 
-	Aluno* alu6 = buscaPosicaoListaCircular(lista, 1);
-	imprimeAluno(alu6);
+	lista = removeFimListaDescritiva(lista);
+	lista = removeFimListaDescritiva(lista);
+	lista = removeFimListaDescritiva(lista);
+	
+	printf("Tamanho %i\n", tamanhoListaDescritiva(lista));
+	imprimeListaDescritiva(lista);
 
-	liberaListaCircular(lista);
+	liberaListaDescritiva(lista);
 	return 0;
 }
